@@ -64,7 +64,7 @@ endif
 
 
 set nocompatible              " be iMproved, required
-filetype off                  " required
+" filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
@@ -79,7 +79,7 @@ Bundle 'gmarik/vundle'
 " Keep bundle commands between here and filetype plugin indent on.
 " scripts on GitHub repos
 Bundle 'scrooloose/nerdtree'
-Bundle 'wangjiezhe/vim-plugins'
+"Bundle 'wangjiezhe/vim-plugins'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'godlygeek/tabular'
@@ -91,10 +91,15 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/ListToggle'
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
 " scripts from http://vim-scripts.org/vim/scripts.html
 Bundle 'TagHighlight'
 Bundle 'LargeFile'
 " Bundle 'readnovel'
+" git repos on your local machine (i.e. when working on your own plugin)
+Bundle 'file:///home/wangjiezhe/.vim/bundle/vim-plugins'
 
 
 " Don't wake up system with blinking cursor:
@@ -210,7 +215,7 @@ set cmdheight=1
 " 不要使用vi的键盘模式，而是vim自己的
 set nocompatible
 " 侦测文件类型
-"filetype on
+filetype on
 " 载入文件类型插件
 filetype plugin on
 " 为特定文件类型载入相关缩进文件
@@ -280,7 +285,11 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 let g:ycm_confirm_extra_conf = 0
+"let g:ycm_extra_conf_vim_data = ['v:704']
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:syntastic_always_populate_loc_list = 1
+" 使用ctags生成的tags文件
+let g:ycm_collect_identifiers_from_tag_files = 1
 
 " set statusline+=%#warningsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
