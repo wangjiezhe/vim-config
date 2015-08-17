@@ -1,3 +1,5 @@
+runtime! archlinux.vim
+
 if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
 	set fileencodings=ucs-bom,utf-8,latin1
 endif
@@ -75,7 +77,8 @@ source ~/.vim/nerdtree.vimrc
 source ~/.vim/syntastic.vimrc
 source ~/.vim/tagbar.vimrc
 source ~/.vim/ycm.vimrc
-source ~/.vim/neocomplete.vimrc
+"source ~/.vim/neocomplete.vimrc
+source ~/.vim/airline.vimrc
 
 " Don't wake up system with blinking cursor:
 " http://www.linuxpowertop.org/known.php
@@ -83,11 +86,11 @@ source ~/.vim/neocomplete.vimrc
 
 set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示
 "winpos 5 5          " 设定窗口位置
-set lines=108 columns=192    " 设定窗口大小
+"set lines=50 columns=190    " 设定窗口大小
 syntax enable
 syntax on	" 语法高亮
 " set guifont=DejaVuSansMono\ Bold\ 11   " 设置字体
-set guifont=SourceCodePro\ Semibold\ 12
+set guifont=SourceCodePro\ 13
 autocmd InsertLeave * se nocul  " 用浅色高亮当前行
 autocmd InsertEnter * se cul    " 用浅色高亮当前行
 set showcmd		" 输入的命令显示出来，看的清楚些
@@ -95,18 +98,18 @@ set showcmd		" 输入的命令显示出来，看的清楚些
 "set whichwrap+=<,>,h,l   " 允许backspace和光标键跨越行边界(不建议)
 "set scrolloff=3     " 光标移动到buffer的顶部和底部时保持3行距离
 set novisualbell    " 不要闪烁
+"set showtabline=2
 set laststatus=2    " 启动显示状态行(1),总是显示状态行(2)
 set foldenable      " 允许折叠
 set foldmethod=manual   " 手动折叠
 set background=dark "背景使用黑色
 
 "设置配色方案
-colorscheme molokai
-" if has('gui_running')
-" 	colorscheme evening
-" else
-" 	colorscheme desert
-" endif
+if has('gui_running')
+	colorscheme molokai
+else
+ 	colorscheme desert
+endif
 
 " 显示中文帮助
 if version >= 603
@@ -132,7 +135,7 @@ set shiftwidth=4
 set softtabstop=4
 
 " 不要用空格代替制表符
-set noexpandtab
+" set noexpandtab
 " 在行和段开始处使用制表符
 set smarttab
 
@@ -251,16 +254,19 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType python set foldmethod=indent
 autocmd FileType python set foldlevel=99
 autocmd FileType python set expandtab
+autocmd FileType python set wrap
 
-"set tags=/usr/share/vim/vim73/tags
+autocmd FileType html set expandtab
+autocmd FileType lua set expandtab
+autocmd FileType scheme set expandtab
+autocmd FileType racket set expandtab
+"autocmd FileType json set ts=2
 
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 
 " let g:winManagerWindowLayout='FileExplorer|TagList'
 " nmap wm :WMToggle<cr>
-
-let g:Powerline_symbols = 'fancy'
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
@@ -272,8 +278,8 @@ let g:lt_quickfix_list_toggle_map = '<leader><leader>q'
 
 map <leader>v <Plug>TaskList
 
-nnoremap <silent> <leader><leader>t :CommandT<CR>
-nnoremap <silent> <leader><leader>b :CommandTBuffer<CR>
+"nnoremap <silent> <leader><leader>t :CommandT<CR>
+"nnoremap <silent> <leader><leader>b :CommandTBuffer<CR>
 
 """""""""" Ultisnips """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -306,7 +312,8 @@ autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} map <Leader>p :!c
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 nmap <leader>w :w!<cr>
-nmap <leader>q :wq<cr>
+nmap <leader>q :q<cr>
+nmap <leader>x :x<cr>
 " nmap <leader>f :find<cr>
 
 " 交换;和:
@@ -347,7 +354,7 @@ func! CompileRunGcc()
         exec "!javac %"
         exec "!java %<"
     elseif &filetype == 'sh'
-		exec "!chmod +x %"
+		exec "!chmod +x '%'"
 		exec "! ./%"
 	elseif &filetype == 'python'
 		exec "!chmod +x %"
@@ -385,6 +392,12 @@ endfunc
 
 
 """"""" CTags的设定 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set tags=tags;/
+set tags=tags;/,TAGS:/
+autocmd FileType c set tags+=~/tags/lib_tags
 set autochdir
 
+"""""" Pymode """"""""""
+let g:pymode_lint_cwindow = 0
+
+"""""" Slimv """"""
+let g:slimv_swank_cmd = '! xterm -e sbcl --load ~/.vim/bundle/slimv/slime/start-swank.lisp &'
