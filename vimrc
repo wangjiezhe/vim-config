@@ -230,6 +230,9 @@ set confirm
 
 set gcr=a:block-blinkwait700-blinkon400-blinkoff400		" 块状光标
 
+" Crypto method
+setl cm=blowfish2
+
 "自动补全
 ":inoremap ( ()<ESC>i
 ":inoremap ) <c-r>=ClosePair(')')<CR>
