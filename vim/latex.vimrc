@@ -20,5 +20,5 @@ filetype indent on
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
 
-" imap <C-space> <Plug>IMAP_JumpForward
-" nmap <C-space> <Plug>IMAP_JumpForward
+imap <C-space> <Plug>IMAP_JumpForward
+nmap <C-space> <Plug>IMAP_JumpForward

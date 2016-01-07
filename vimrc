@@ -77,8 +77,9 @@ source ~/.vim/nerdtree.vimrc
 source ~/.vim/syntastic.vimrc
 source ~/.vim/tagbar.vimrc
 source ~/.vim/ycm.vimrc
-"source ~/.vim/neocomplete.vimrc
+source ~/.vim/neocomplete.vimrc
 source ~/.vim/airline.vimrc
+source ~/.vim/trailing-whitespace.vimrc
 
 " Don't wake up system with blinking cursor:
 " http://www.linuxpowertop.org/known.php
@@ -90,7 +91,8 @@ set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提�
 syntax enable
 syntax on	" 语法高亮
 " set guifont=DejaVuSansMono\ Bold\ 11   " 设置字体
-set guifont=SourceCodePro\ 13
+" set guifont=SourceCodePro\ 13
+set guifont=Sauce\ Code\ Powerline\ 13
 autocmd InsertLeave * se nocul  " 用浅色高亮当前行
 autocmd InsertEnter * se cul    " 用浅色高亮当前行
 set showcmd		" 输入的命令显示出来，看的清楚些
@@ -120,7 +122,7 @@ endif
 set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set encoding=utf-8
-set fileencodings=utf-8,ucs-bom,cp936,gbk
+set fileencodings=utf-8,ucs-bom,cp936,gbk,gb18030
 set fileencoding=utf-8
 
 
@@ -265,6 +267,15 @@ autocmd FileType scheme set expandtab
 autocmd FileType racket set expandtab
 "autocmd FileType json set ts=2
 
+autocmd FileType java set tabstop=2
+autocmd FileType java set expandtab
+
+autocmd FileType r set tabstop=8
+autocmd FileType r set expandtab
+
+"autocmd FileType matlab set tabstop=2
+autocmd FileType matlab set expandtab
+
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 
@@ -404,3 +415,6 @@ let g:pymode_lint_cwindow = 0
 
 """""" Slimv """"""
 let g:slimv_swank_cmd = '! xterm -e sbcl --load ~/.vim/bundle/slimv/slime/start-swank.lisp &'
+
+"""""" UltiSnips """"""
+let g:UltiSnipsUsePythonVersion = 2

@@ -17,12 +17,12 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 " scripts on GitHub repos
-"NeoBundle 'Shougo/neocomplete'
-"NeoBundle 'Shougo/neosnippet'
-"NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Shougo/neocomplete'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
-NeoBundle 'wangjiezhe/vim-plugins'
+"NeoBundle 'wangjiezhe/vim-plugins'
 NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'godlygeek/tabular'
@@ -48,7 +48,7 @@ NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'gcmt/wildfire.vim'
 NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'ianva/vim-youdao-translater'
+"NeoBundle 'ianva/vim-youdao-translater'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-function'
 NeoBundle 'bps/vim-textobj-python'
@@ -63,6 +63,8 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'wlangstroth/vim-racket'
 "NeoBundle 'kovisoft/slimv'
 NeoBundle 'jalcine/cmake.vim'
+NeoBundle 'JuliaLang/julia-vim'
+NeoBundle 'yianwillis/vimcdoc'
 " scripts from http://vim-scripts.org/vim/scripts.html
 NeoBundle 'TaskList.vim'
 NeoBundle 'TagHighlight'
@@ -79,7 +81,7 @@ NeoBundle 'aux2tags.vim'
 " git repos on your local machine (i.e. when working on your own plugin)
 " Bundle 'file:///home/wangjiezhe/.vim/bundle/vim-plugins'
 
-NeoBundle 'Valloric/YouCompleteMe', {'build': {'unix': 'git submodule update --init --recursive; bash install.sh --clang-completer --system-libclang --omnisharp-completer'}}
+"NeoBundle 'Valloric/YouCompleteMe', {'build': {'unix': 'git submodule update --init --recursive; bash install.sh --clang-completer --system-libclang --omnisharp-completer'}}
 
 call neobundle#end()
 
