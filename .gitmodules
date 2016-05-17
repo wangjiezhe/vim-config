@@ -1,6 +1,6 @@
 [submodule "vim/bundle/neobundle.vim"]
 	path = vim/bundle/neobundle.vim
-	url = git@github.com:Shougo/neobundle.vim
+	url = https://github.com/Shougo/neobundle.vim
 [submodule "vimcdoc"]
 	path = vimcdoc
-	url = git@github.com:yianwillis/vimcdoc.git
+	url = https://github.com/yianwillis/vimcdoc.git
