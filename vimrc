@@ -92,7 +92,7 @@ syntax enable
 syntax on	" 语法高亮
 " set guifont=DejaVuSansMono\ Bold\ 11   " 设置字体
 " set guifont=SourceCodePro\ 13
-set guifont=Sauce\ Code\ Powerline\ 13
+set guifont=Sauce\ Code\ Powerline\ Semibold\ 13
 autocmd InsertLeave * se nocul  " 用浅色高亮当前行
 autocmd InsertEnter * se cul    " 用浅色高亮当前行
 set showcmd		" 输入的命令显示出来，看的清楚些
@@ -142,6 +142,7 @@ set softtabstop=4
 set smarttab
 
 set nu		" 显示行号
+set rnu		" 显示相对行号
 set tabstop=4	" Tab键的宽度为4
 set showmatch
 
@@ -275,6 +276,9 @@ autocmd FileType r set expandtab
 
 "autocmd FileType matlab set tabstop=2
 autocmd FileType matlab set expandtab
+
+" sudo write
+ca w!! w ! sudo tee >/dev/null "%"
 
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
